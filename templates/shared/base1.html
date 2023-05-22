@@ -14,10 +14,12 @@
 </head>
 
 <body>
-    {% include 'partials/_nav.html' %}
-    {% block content %}{% endblock %}
-    {% include 'partials/_contact.html' %}
-    {% include 'partials/_footer.html' %}
+    <div class="page-wrapper">
+        {% include 'partials/_nav.html' %}
+        {% block content %}{% endblock %}
+        {% include 'partials/_contact.html' %}
+        {% include 'partials/_footer.html' %}
+    </div>
 </body>
 
 </html>

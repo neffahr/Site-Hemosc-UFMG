@@ -1,0 +1,28 @@
+body{
+    font-family: 'Arimo', sans-serif;
+    margin: 0 auto;
+}
+
+.header {
+    background-color: #DD5353;
+    display: flex;
+}
+
+.ufmg_logo {
+    width: 200px;
+    margin: 15px 35px;
+}
+
+.header-pages {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    background-color: transparent;
+    border-style: hidden;
+    border-color: transparent;
+    cursor: pointer;
+}
