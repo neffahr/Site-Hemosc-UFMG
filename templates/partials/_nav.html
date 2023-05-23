@@ -3,24 +3,39 @@
     <a href="{% url 'index' %}">
         <img src="{% static '/assets/images/logo_ufmg.png' %}" alt="Logo UFMG" class="ufmg_logo">
     </a>
+
     <div class="header-pages">
-        <div class="page-div">
+        <div>
             <a href="{% url 'locations' %}">Localizações</a>
             <a href="{% url 'historico' %}">Histórico</a>
         </div>
         <a href="{% url 'login' %}" class="page-login">Login</a>
     </div>
-    <div class="header-search">
-        <form action=""> <!--  url 'search' -->
-            <input class="search-input" type="text" name='search' placeholder="Procure por locais ou tipos de bolsas" hidden>
-            <button type="submit" class="icon">
-                <img  src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
-            </button>
-        </form>
+
+    <div class="header-icons">
+        <div class="icons-search icon-div">
+            <form action="" class="search-form"> <!--  url 'search' -->
+                <input class="search-input" type="text" name='search' placeholder="Procure por locais ou tipos de bolsas" hidden>
+                <div class="icon search-icon">
+                    <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
+                </div>
+                <button type="submit" class="icon search-icon-hidden" hidden>
+                    <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
+                </button>
+            </form>
+        </div>
+
+        <div class="icons-logout icon-div">
+            <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+                <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
+            </a>
+        </div>
+
+        <div class="icons-home icon-div">
+            <a href="{% url 'index' %}" class="icon">
+                <img src="{% static '/assets/icons/house.png' %}" alt="ícone de home">
+            </a>
+        </div>
     </div>
-    <div class="logout">
-        <button type="submit" class="icon">
-            <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de pesquisa">
-        </button>
-    </div>
+    <script src="{% static '/js/search.js' %}"></script>
 </header>
