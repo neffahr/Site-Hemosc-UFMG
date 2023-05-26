@@ -15,13 +15,19 @@
     <div class="header-icons">
         <div class="icons-search icon-div">
             <form action="" class="search-form"> <!--  url 'search' -->
-                <input class="search-input" type="text" name='search' placeholder="Procure por locais ou tipos de bolsas" hidden>
                 <div class="icon search-icon">
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </div>
+
                 <button type="submit" class="icon search-icon-hidden" hidden>
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </button>
+
+                <input class="search-input" type="text" name='search' placeholder="Procure por locais ou bolsas" hidden>
+                
+                <div class="icon cancel-icon" hidden>
+                    <img src="{% static '/assets/icons/cancel.png' %}" alt="ícone de cancelar">
+                </div>
             </form>
         </div>
 
@@ -39,3 +45,17 @@
     </div>
     <script src="{% static '/js/search.js' %}"></script>
 </header>
+
+<section class="locations-nav">
+    <nav class="nav-wrapper">
+        <div class="icon">
+            <img src="{% static '/assets/icons/back.png' %}" alt="ícone de filtragem">
+        </div>
+
+        <!-- loop para nomes dos hemocentros salvos + paginator-->
+
+        <div class="icon">
+            <img src="{% static '/assets/icons/next.png' %}" alt="ícone de filtragem">
+        </div>
+    </nav>
+</section>
