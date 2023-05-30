@@ -13,16 +13,20 @@
     </div>
 
     <div class="header-icons">
+        <div class="icons-options icon-div icon">
+            <img src="{% static '/assets/icons/options.png' %}" alt="ícone de opções">
+        </div>
+
         <div class="icons-search icon-div">
             <form action="" class="search-form"> <!--  url 'search' -->
                 <div class="icon search-icon">
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </div>
-
+        
                 <button type="submit" class="icon search-icon-hidden" hidden>
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </button>
-
+        
                 <input class="search-input" type="text" name='search' placeholder="Procure por locais ou bolsas" hidden>
                 
                 <div class="icon cancel-icon" hidden>
@@ -31,20 +35,46 @@
             </form>
         </div>
 
-        <div class="icons-logout icon-div">
-            <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
-                <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
-            </a>
-        </div>
-
         <div class="icons-home icon-div">
             <a href="{% url 'index' %}" class="icon">
                 <img src="{% static '/assets/icons/house.png' %}" alt="ícone de home">
             </a>
         </div>
+
+        <div class="icons-logout icon-div">
+            <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+                <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
+            </a>
+        </div>
     </div>
-    <script src="{% static '/js/search.js' %}"></script>
 </header>
+
+<div class="options-bar-hidden">
+    <div class="op-div">
+        <a href="{% url 'locations' %}" class="icon">
+            Localizações
+            <img src="{% static '/assets/icons/placeholder.png' %}" alt="ícone de locais">
+        </a>
+    </div>
+    <div class="op-div">
+        <a href="{% url 'historico' %}" class="icon">
+            Histórico
+            <img src="{% static '/assets/icons/tag.png' %}" alt="ícone de historico">
+        </a>
+    </div>
+    <div class="op-div">
+        <a href="{% url 'login' %}" class="icon">
+            Login
+            <img src="{% static '/assets/icons/avatar.png' %}" alt="ícone de login">
+        </a>
+    </div>
+    <div class="op-div">
+        <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+            Logout
+            <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
+        </a>
+    </div>
+</div>
 
 <section class="locations-nav">
     <nav class="nav-wrapper">
@@ -59,3 +89,5 @@
         </div>
     </nav>
 </section>
+<script src="{% static '/js/search.js' %}"></script>
+<script src="{% static '/js/opbar.js' %}"></script>

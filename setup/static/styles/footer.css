@@ -1,0 +1,40 @@
+/* FOOTER */
+footer {
+    background-color: #B1B1B1;
+    text-align: center;
+}
+
+.partners {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hemosc img {
+    width: 230px;
+    margin-left: 20px;
+}
+.fapemig img {
+    width: 300px;
+}
+.eng-ufmg img{
+    width: 400px;
+}
+
+footer p {
+    padding-bottom: 15px;
+}
+
+@media screen and (max-width: 500px) {
+    .hemosc img {
+        width: 130px;
+    }
+    .fapemig img {
+        width: 200px;
+    }
+    .eng-ufmg img{
+        width: 300px;
+    }
+}
