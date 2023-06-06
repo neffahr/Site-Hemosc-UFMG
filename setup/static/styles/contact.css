@@ -1,0 +1,11 @@
+/* CONTACT */
+.contact {
+    background-color: #D9D9D9;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
