@@ -25,6 +25,7 @@ footer {
 
 footer p {
     padding-bottom: 15px;
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 500px) {

@@ -1,0 +1,42 @@
+/* INDEX PAGE */
+.index {
+    margin: 70px 5% 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.index-main {
+    width: 24%;
+    height: 50%;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    background-color: #FA9884;
+    padding: 10px 3%;
+    margin-right: 10%;
+    border-radius: 20px;
+}
+
+aside {
+    width: 650px;
+    
+}
+
+.index-bags {
+    height: 100px;
+    background-color: #FA9884;
+    margin-bottom: 30px;
+}
+
+.index-image {
+    position: relative;
+    left: 120px;
+    
+
+}
+
+.index-image img{
+    position: relative;
+    top: -340px;
+    left: -80px;
+}
+
+

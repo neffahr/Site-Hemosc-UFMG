@@ -2,4 +2,33 @@
 {% load static %}
 
 {% block content %}
+    <div class="index">
+        <main class="index-main">
+            <p>
+                Esse site é resultado de uma pesquisa desenvolvida pela Escola de Engenharia da UFMG em parceria com a 
+                HEMOSC a fim de mostrar os dados da análise sobre a cadeia de suprimento de sangue no Brasil.
+            </p>
+            <p>
+                O site oferece recursos para fácil visualização dos dados que são utilizados como base para entender o
+                panorama da distribuição das bolsas de sangue pelos hemocentros de Santa Catarina e orientar esse processo
+                de forma mais eficiente e rápida.
+            </p>
+        </main>
+
+        <aside>
+            <div class="index-bags">
+            </div>
+
+            <div class="index-image">
+                <svg width="400" height="400">
+                    <circle cx="200" cy="200" r="200" fill="#E74646" />
+                </svg>
+                <img src="{% static 'assets/images/index_image.png' %}" alt="Imagem doação de sangue">
+            </div>
+        </aside>
+
+        <div class="index-donate">
+            <p>A Sua Doação Pode Salvar Muitas Vidas! <a href="https://www.hemosc.org.br/agende-sua-doacao.html">Agende Sua Doação Agora!</a></p>
+        </div>
+    </div>
 {% endblock %}

@@ -1,4 +1,17 @@
+@import "nav.css";
+@import "footer.css";
+@import "contact.css";
+@import "index.css";
+
 body{
-    font-family: 'Arimo', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0 auto;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }

@@ -5,7 +5,59 @@
     padding: 2px 0;
 }
 
+.contact-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 474px;
+}
+
+.contact-page p {
+    width: 100%;
+    margin: 30px 0 0 7%;
+    color: #DD5353;
+    font-size: 1.3rem;
+}
+
 .contact-form {
     display: flex;
+    align-items: center;
     flex-direction: column;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.form-field {
+    border: 1px solid black;
+    outline: none;
+    background-color: transparent;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px #D9D9D9;
+}
+
+.form-email, .form-name {
+    width: 50%
+}
+.form-msg {
+    width: 50%;
+    resize: none;
+}
+.contact-btn {
+    margin: 10px 0 20px 0;
+    padding: 6px;
+    width: 30%;
+    align-self: center;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: #DD5353;
+    color: white;
+    box-shadow: 2px 2px 2px #D9D9D9;
+    transition: 0.3s;
+}
+.contact-btn:hover {
+    padding: 10px;
+    transition: 0.3s;
 }

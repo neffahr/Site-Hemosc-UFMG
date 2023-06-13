@@ -2,10 +2,13 @@
 {% load static %}
 
 {% block content %}
-    <form action="" method="post" class="contact-form"> {% csrf_token %}
-        {% for field in form.visible_fields %}
-            {{ field }}
-        {% endfor %}
-        <button type="submit" class="contact-btn">Enviar</button>
-    </form>
+    <section class="contact-page">
+        <p>Entre em Contato Conosco</p>
+        <form action="" method="post" class="contact-form"> {% csrf_token %}
+            {% for field in form.visible_fields %}
+                {{ field }}
+            {% endfor %}
+            <button type="submit" class="contact-btn">Enviar</button>
+        </form>
+    </section>
 {% endblock %}
