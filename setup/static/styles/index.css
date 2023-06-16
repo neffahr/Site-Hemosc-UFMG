@@ -1,33 +1,38 @@
 /* INDEX PAGE */
 .index {
-    margin: 70px 5% 0 5%;
-    display: flex;
-    flex-wrap: wrap;
+    margin: 30px 0 0 0;
 }
 
 .index-main {
-    width: 24%;
-    height: 50%;
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    background-color: #FA9884;
-    padding: 10px 3%;
-    margin-right: 10%;
-    border-radius: 20px;
+    text-align: justify;
+    height: 360px;
+    width: 100%;
+    background-image: url("../assets/images/index_banner.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.index-main p {
+    margin: 10px;
+    width: 35%;
 }
 
 aside {
+    grid-area: aside;
     width: 650px;
-    
+    display: grid;
+    grid-template-rows: 18% 82%;
 }
 
 .index-bags {
     height: 100px;
+    width: 100%;
     background-color: #FA9884;
-    margin-bottom: 30px;
 }
 
 .index-image {
     position: relative;
+    overflow: hidden;
     left: 120px;
     
 
@@ -39,4 +44,6 @@ aside {
     left: -80px;
 }
 
-
+.index-donate {
+    
+}
