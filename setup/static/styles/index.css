@@ -1,49 +1,114 @@
 /* INDEX PAGE */
-.index {
-    margin: 30px 0 0 0;
-}
 
 .index-main {
     text-align: justify;
-    height: 360px;
+    height: fit-content;
     width: 100%;
-    background-image: url("../assets/images/index_banner.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
-.index-main p {
-    margin: 10px;
+.index-main img {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    height: cover;
+    z-index: -1;
+    mask-image: linear-gradient(to bottom, #000000 50%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, #000000 50%, transparent);
+}
+
+.main-txt {
+    margin: 0 0 0 30px;
     width: 35%;
-}
-
-aside {
-    grid-area: aside;
-    width: 650px;
-    display: grid;
-    grid-template-rows: 18% 82%;
+    font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+    color: rgb(223, 89, 89);
 }
 
 .index-bags {
-    height: 100px;
-    width: 100%;
+    width: 80%;
+    height: 120px;
+    margin: 10% 10% 5% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
     background-color: #FA9884;
-}
-
-.index-image {
-    position: relative;
-    overflow: hidden;
-    left: 120px;
-    
-
-}
-
-.index-image img{
-    position: relative;
-    top: -340px;
-    left: -80px;
+    box-shadow: 1px 1px 5px #FA9884;
 }
 
 .index-donate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.donate-img {
+    width: fit-content;
+    position: relative;
+    left: 0;
+    margin-left: 5%;
+}
+
+.donate-img img{
+    width: 100%;
+}
+
+.donate-txt {
+    width: 35%;
+    height: fit-content;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #DD5353;
+    color: whitesmoke;
+    margin-right: 10%;
+    padding: 10px;
+    box-shadow: 1px 1px 5px #DD5353;
+    border-radius: 3px;
+}
+.donate-txt a {
+    color: whitesmoke;
+}
+
+@media screen and (max-width: 700px) {
+    .index-main {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background: linear-gradient(to bottom, #F6C7BF 40%, transparent);
+        padding-top: 50px;
+        position: relative;
+        top: -40px;
+        z-index: -1;
+    }
+
+    .index-main img {
+        display: none;
+    }
     
+    .main-txt {
+        width: 65%;
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .index-bags {
+        margin: 0px 10% 10% 10%;
+    }
+
+    .index-donate {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .donate-img {
+        width: 80%;
+        margin: 0;
+    }
+
+    .donate-txt {
+        width: auto;
+        margin: 3%;
+        font-size: clamp(0.8rem, 4vw, 1.3rem);
+    }
 }
