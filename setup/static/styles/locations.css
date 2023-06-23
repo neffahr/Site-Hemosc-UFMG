@@ -1,0 +1,12 @@
+/* LOCATIONS PAGE */
+.locations {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.locations-title {
+    color: #DD5353;
+    font-size: 1.3rem;
+    margin: 0 0 45px 0;
+}
