@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'apps.bolsas.apps.BolsasConfig',
     'apps.contactform.apps.ContactformConfig',
+    'apps.users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
