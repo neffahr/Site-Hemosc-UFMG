@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from apps.users.forms import LoginForms
-from django.contrib.auth.models import User
 from django.contrib import auth, messages
 
 def login(request):
@@ -17,15 +16,22 @@ def login(request):
         user = auth.authenticate(
             request,
             username=email,
-            password=senha
-
+            password=senha,
+            location=location
         )
+        
         if user is not None:
             auth.login(request, user)
-            messages.success(request, f'Bem vindo {email}') # Strip @gmail part
+            messages.success(request, f'Bem vindo {email.split("@", 1)[0]}')
             return redirect('index')
         else:
-            messages.error(request, 'Usuário e/ou senha não correspondem') # implement messages
+            messages.error(request, 'Usuário/Senha/Unidade não correspondem') # implement messages
             return redirect('login')
         
     return render(request, 'users/login.html', {'form': form})
+
+def logout(request):
+    if not request.user.is_authenticated:    
+        auth.logout(request)
+        messages.success(request, 'Logout efetuado com sucesso!')
+    return redirect('index')

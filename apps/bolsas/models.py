@@ -19,11 +19,11 @@ class BloodBag(models.Model):
         ('CRITICO', 'Crítico'), ('BAIXO', 'Baixo'), ('ESTAVEL', 'Estável'), ('ADEQUADO', 'Adequado')
     ]
 
-    type = models.CharField(max_length=3, choices=TYPES, default='')
-    level = models.CharField(max_length=10, choices=LEVELS, default='')
+    type = models.CharField(max_length=3, choices=TYPES)
+    level = models.CharField(max_length=10, choices=LEVELS)
     ideal_qnt = models.IntegerField()
-    quantity = models.IntegerField()
-    last_updated = models.DateTimeField(default=datetime.now, blank=False)
+    total = models.IntegerField()
+    last_updated = models.DateTimeField(default=datetime.now)
     location = models.ForeignKey(Hemocentro, on_delete=models.DO_NOTHING)
 
     def __str__(self):

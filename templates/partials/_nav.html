@@ -42,7 +42,7 @@
         </div>
 
         <div class="icons-logout icon-div">
-            <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+            <a href="{% url 'logout' %}" class="icon"> 
                 <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
             </a>
         </div>
@@ -69,7 +69,7 @@
         </a>
     </div>
     <div class="op-div">
-        <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+        <a href="{% url 'logout' %}" class="icon">
             Logout
             <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
         </a>
@@ -82,8 +82,14 @@
             <img src="{% static '/assets/icons/back.png' %}" alt="ícone de filtragem">
         </div>
 
-        <!-- loop para nomes dos hemocentros salvos + paginator-->
-
+        <div class="nav-locations">
+            {% for location in locations %}
+                <a  class="locations-addr" href="{% url 'hemocentro' location.address %}">
+                    {{location.address}}
+                </a>
+            {% endfor %}
+        </div>
+        
         <div class="icon">
             <img src="{% static '/assets/icons/next.png' %}" alt="ícone de filtragem">
         </div>

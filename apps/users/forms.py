@@ -24,9 +24,8 @@ class LoginForms(forms.Form):
         )
     )
     location=forms.ChoiceField(
-        label='Hemocentro',
+        label='Unidade',
         required=True,
-        max_length=20,
         choices=[
             ("FLORIANOPOLIS", "Florianópolis"),
             ("JOINVILLE", "Joinville"),

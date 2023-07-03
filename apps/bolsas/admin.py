@@ -11,7 +11,7 @@ class ListHemocentros(admin.ModelAdmin):
 admin.site.register(Hemocentro, ListHemocentros)
 
 class ListBags(admin.ModelAdmin):
-    list_display = ("id", "type", "level", "ideal_qnt", "quantity", "last_updated", "location")
+    list_display = ("id", "type", "level", "ideal_qnt", "total", "last_updated", "location")
     list_display_links = ("id", "type")
     search_fields = ("type",)
     list_filter = ('type',)
