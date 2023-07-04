@@ -7,7 +7,9 @@
     <div class="header-pages">
         <div>
             <a href="{% url 'locations' %}">Localizações</a>
-            <a href="{% url 'historico' %}">Histórico</a>
+            {% if hemoscuser.is_authenticated %}
+                <a href="{% url 'historico' %}">Histórico</a>
+            {% endif %}
         </div>
         <a href="{% url 'login' %}" class="page-login">Login</a>
     </div>
@@ -42,7 +44,7 @@
         </div>
 
         <div class="icons-logout icon-div">
-            <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+            <a href="{% url 'logout' %}" class="icon">
                 <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
             </a>
         </div>
@@ -56,12 +58,14 @@
             <img src="{% static '/assets/icons/placeholder.png' %}" alt="ícone de locais">
         </a>
     </div>
+    {% if hemoscuser.is_authenticated %}
     <div class="op-div">
         <a href="{% url 'historico' %}" class="icon">
             Histórico
             <img src="{% static '/assets/icons/tag.png' %}" alt="ícone de historico">
         </a>
     </div>
+    {% endif %}
     <div class="op-div">
         <a href="{% url 'login' %}" class="icon">
             Login
@@ -69,7 +73,7 @@
         </a>
     </div>
     <div class="op-div">
-        <a href="{% url 'index' %}" class="icon"> <!-- url 'logout' -->
+        <a href="{% url 'logout' %}" class="icon">
             Logout
             <img src="{% static '/assets/icons/logout.png' %}" alt="ícone de logout">
         </a>

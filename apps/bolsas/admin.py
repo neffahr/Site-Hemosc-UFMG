@@ -3,7 +3,7 @@ from apps.bolsas.models import Hemocentro
 from apps.bolsas.models import BloodBag
 
 class ListHemocentros(admin.ModelAdmin):
-    list_display = ("id", "address", "last_updated", "ideal_qnt")
+    list_display = ("id", "address", "last_updated",)
     list_display_links = ("id", "address")
     search_fields = ("address",)
     list_per_page = 10

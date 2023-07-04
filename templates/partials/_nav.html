@@ -7,7 +7,9 @@
     <div class="header-pages">
         <div>
             <a href="{% url 'locations' %}">Localizações</a>
-            <a href="{% url 'historico' %}">Histórico</a>
+            {% if hemoscuser.is_authenticated %}
+                <a href="{% url 'historico' %}">Histórico</a>
+            {% endif %}
         </div>
         <a href="{% url 'login' %}" class="page-login">Login</a>
     </div>
@@ -56,12 +58,14 @@
             <img src="{% static '/assets/icons/placeholder.png' %}" alt="ícone de locais">
         </a>
     </div>
+    {% if hemoscuser.is_authenticated %}
     <div class="op-div">
         <a href="{% url 'historico' %}" class="icon">
             Histórico
             <img src="{% static '/assets/icons/tag.png' %}" alt="ícone de historico">
         </a>
     </div>
+    {% endif %}
     <div class="op-div">
         <a href="{% url 'login' %}" class="icon">
             Login
@@ -78,22 +82,15 @@
 
 <section class="locations-nav">
     <nav class="nav-wrapper">
-        <div class="icon">
-            <img src="{% static '/assets/icons/back.png' %}" alt="ícone de filtragem">
-        </div>
-
-        <div class="nav-locations">
+        <div class="nav-hc">
             {% for location in locations %}
-                <a  class="locations-addr" href="{% url 'hemocentro' location.address %}">
+                <a  class="hc-addr" href="{% url 'hemocentro' location.address %}">
                     {{location.address}}
                 </a>
             {% endfor %}
-        </div>
-        
-        <div class="icon">
-            <img src="{% static '/assets/icons/next.png' %}" alt="ícone de filtragem">
         </div>
     </nav>
 </section>
 <script src="{% static '/js/search.js' %}"></script>
 <script src="{% static '/js/opbar.js' %}"></script>
+<script src="{% static '/js/hcbar.js' %}"></script>
