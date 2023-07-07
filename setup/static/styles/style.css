@@ -4,6 +4,12 @@
 @import "index.css";
 @import "locations.css";
 
+:root {
+    --color-red: #DD5353;
+    --color-pink: #FFE5CA;
+    --color-brt-red: #FA9884;
+}
+
 body{
     font-family: 'Geologica', sans-serif;
     margin: 0 auto;

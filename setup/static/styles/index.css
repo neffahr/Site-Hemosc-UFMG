@@ -25,13 +25,31 @@
 
 .index-bags {
     width: 80%;
-    height: 120px;
+    height: fitcontent;
     margin: 8% 10% 5% 10%;
     display: flex;
     flex-wrap: wrap;
-    border-radius: 5px;
-    background-color: #FA9884;
-    box-shadow: 1px 1px 1px #FA9884;
+    justify-content: space-around;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 10px solid #DD5353;
+    box-shadow: 1px 1px 1px #DD5353;
+    background-color: var(--color-pink);
+}
+
+.bag-idx {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 6%;
+}
+
+.bag-info {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-red);
+    font-weight: 600;
 }
 
 .index-donate {

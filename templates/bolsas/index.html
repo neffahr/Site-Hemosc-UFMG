@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="index">
+    <section class="index">
         <main class="index-main">
             <div class="main-txt">
                 <p>
@@ -20,8 +20,23 @@
 
         <div class="index-bags">
             {% for bag in bags %}
-                <div class="bags-item">
+                <div class="bag-idx">
+                    <div class="bag-img">
+                        {% if bag.level == "Crítico"%}
+                            <img src="{% static 'assets/images/bolsa1.png' %}" alt="Bolsa Crítico">
+                        {% elif bag.level == "Baixo"%}
+                            <img src="{% static 'assets/images/bolsa2.png' %}" alt="Bolsa Baixo">
+                        {% elif bag.level == "Estável"%}
+                            <img src="{% static 'assets/images/bolsa3.png' %}" alt="Bolsa Estavel">
+                        {% else %}
+                            <img src="{% static 'assets/images/bolsa4.png' %}" alt="Bolsa Adequado">
+                        {% endif %}
+                    </div>
                     
+                    <div class="bag-info">
+                        <p>{{bag.type}}</p>
+                        <p>{{bag.level}}</p>
+                    </div>
                 </div>
             {% endfor %}
         </div>
@@ -34,6 +49,5 @@
                 <p>A Sua Doação Pode Salvar Muitas Vidas! <a href="https://www.hemosc.org.br/agende-sua-doacao.html">Agende Sua Doação Agora!</a></p>
             </div>
         </div>
-        
-    </div>
+    </section>
 {% endblock %}

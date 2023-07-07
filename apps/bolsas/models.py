@@ -28,3 +28,32 @@ class BloodBag(models.Model):
     def __str__(self):
         return self.type
 
+class IndexBag:
+    def __init__(self, type):
+        self.type = type
+        self.total = self.calc_total(type)
+        self.ideal_qnt = self.calc_ideal_qnt(type)
+        self.level = self.calc_level(type)
+    
+    def calc_ideal_qnt(self, type):
+        qnt = 0
+        for bag in BloodBag.objects.filter(type=type):
+            qnt += bag.ideal_qnt
+        return qnt/2
+    
+    def calc_total(self, type):
+        qnt = 0
+        for bag in BloodBag.objects.filter(type=type):
+            qnt += bag.total
+        return qnt/2
+    
+    def calc_level(self, type):
+        total_bags = self.calc_total(type)
+        if (total_bags <= (self.ideal_qnt//4)):
+            return 'Crítico'
+        elif (total_bags <= (3*self.ideal_qnt//5)):
+            return 'Baixo'
+        elif (total_bags < (self.ideal_qnt)):
+            return 'Estável'
+        else:
+            return 'Adequado'
