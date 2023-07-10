@@ -20,11 +20,14 @@
     justify-content: space-between;
 }
 .header-pages a {
-    background-color: #FFE5CA;
+    background-color: white;
     padding: 5px 25px;
     border-radius: 7px;
     margin-left: 20px;
     color: black;
+}
+.header-pages a:hover {
+    border: 1px solid black
 }
 
 .header-pages>div {
@@ -176,6 +179,7 @@
     transform: scale(1);
     overflow: hidden;
     user-select: none;
+    cursor: pointer;
 }
 .nav-wrapper.active {
     cursor: grabbing;
@@ -198,4 +202,7 @@
     margin: 0 3%;
     border-radius: 4px;
     color: black;
+}
+.hc-addr:hover{
+    border: 1px solid var(--color-red);
 }

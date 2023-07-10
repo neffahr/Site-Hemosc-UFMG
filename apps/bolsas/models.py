@@ -2,7 +2,16 @@ from django.db import models
 from datetime import datetime
 
 class Hemocentro(models.Model):
-    address = models.CharField(max_length=20)
+    choices=[
+            ("FLORIANÓPOLIS", "Florianópolis"),
+            ("JOINVILLE", "Joinville"),
+            ("BLUMENAU", "Blumenau"),
+            ("CRICIÚMA", "Criciúma"),
+            ("LAGES", "Lages"),
+            ("JOAÇABA", "Joaçaba"),
+            ("CHAPECÓ", "Chapecó")
+    ]
+    address = models.CharField(max_length=20, choices=choices)
     last_updated = models.DateTimeField(default=datetime.now, blank=False)
 
     def __str__(self):
@@ -39,13 +48,13 @@ class IndexBag:
         qnt = 0
         for bag in BloodBag.objects.filter(type=type):
             qnt += bag.ideal_qnt
-        return qnt/2
+        return qnt/7
     
     def calc_total(self, type):
         qnt = 0
         for bag in BloodBag.objects.filter(type=type):
             qnt += bag.total
-        return qnt/2
+        return qnt/7 
     
     def calc_level(self, type):
         total_bags = self.calc_total(type)

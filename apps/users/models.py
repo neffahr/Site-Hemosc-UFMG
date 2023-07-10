@@ -5,12 +5,12 @@ class HemoscUser(AbstractUser):
     location = models.CharField(
         max_length=20, 
         choices=[
-            ("FLORIANOPOLIS", "Florianópolis"),
+            ("FLORIANÓPOLIS", "Florianópolis"),
             ("JOINVILLE", "Joinville"),
             ("BLUMENAU", "Blumenau"),
-            ("CRICIUMA", "Criciúma"),
+            ("CRICIÚMA", "Criciúma"),
             ("LAGES", "Lages"),
-            ("JOACABA", "Joaçaba"),
-            ("CHAPECO", "Chapecó")
+            ("JOAÇABA", "Joaçaba"),
+            ("CHAPECÓ", "Chapecó")
         ],
     )

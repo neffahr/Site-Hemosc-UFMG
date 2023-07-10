@@ -6,7 +6,6 @@ class ListHemocentros(admin.ModelAdmin):
     list_display = ("id", "address", "last_updated",)
     list_display_links = ("id", "address")
     search_fields = ("address",)
-    list_per_page = 10
 
 admin.site.register(Hemocentro, ListHemocentros)
 

@@ -27,13 +27,13 @@ class LoginForms(forms.Form):
         label='Unidade',
         required=True,
         choices=[
-            ("FLORIANOPOLIS", "Florianópolis"),
+            ("FLORIANÓPOLIS", "Florianópolis"),
             ("JOINVILLE", "Joinville"),
             ("BLUMENAU", "Blumenau"),
-            ("CRICIUMA", "Criciúma"),
+            ("CRICIÚMA", "Criciúma"),
             ("LAGES", "Lages"),
-            ("JOACABA", "Joaçaba"),
-            ("CHAPECO", "Chapecó")
+            ("JOAÇABA", "Joaçaba"),
+            ("CHAPECÓ", "Chapecó")
         ],
         widget=forms.Select(
             attrs={

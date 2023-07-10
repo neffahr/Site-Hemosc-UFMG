@@ -85,7 +85,7 @@
         <div class="nav-hc">
             {% for location in locations %}
                 <a  class="hc-addr" href="{% url 'hemocentro' location.address %}">
-                    {{location.address}}
+                    {{location.address.capitalize}}
                 </a>
             {% endfor %}
         </div>

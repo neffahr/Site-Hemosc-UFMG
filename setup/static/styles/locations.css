@@ -10,3 +10,64 @@
     font-size: 1.3rem;
     margin: 0 0 45px 0;
 }
+
+
+/* HCS PAGES */
+.hc {
+    margin-bottom: 50px;
+}
+.hc>p {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #FA9884;
+}
+
+.hc-bags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.hc-bag {
+    margin: 0 4% 4%;
+}
+
+.hc-bag>.bag-info {
+    margin-bottom: 3px;
+    font-size: 1.3rem;
+}
+
+.hc-bag .bag-img {
+    height: 230px
+}
+.hc-img{
+    width: 170px;
+    cursor: pointer;
+}
+
+div[class*="bag-moreinfo-"] {
+    width: 400px;
+    height: 350px;
+    border: 2px solid var(--color-brt-red);
+    border-radius: 15px;
+    background: rgb(255,229,202,.15);
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    position: fixed;
+    top: 27vh;
+    left: 36vw;
+}
+
+.moreinfo-field {
+    margin: 25px;
+}
+
+.alert-green {
+    color: rgb(148, 219, 42);
+    margin-top: 60px;
+}
+.alert-red {
+    color: red;
+    margin-top: 60px;
+}

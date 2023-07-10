@@ -19,3 +19,4 @@ def location_info(request, location):
     lc_all = Hemocentro.objects.all()
     hc = Hemocentro.objects.filter(address=location)
     return render(request, 'bolsas/hemocentro.html', {'hc': hc, 'locations': lc_all})
+

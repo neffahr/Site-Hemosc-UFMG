@@ -1,10 +1,67 @@
 {% extends 'shared/base1.html' %}
 {% load static %}
+{% load filters %}
+
 {% block content %}
     <div class="page-wrapper">
-        <p class="pg-title">Bolsas de sangue no Hemocentro de {{hc.address}} {{hc.last_updated}}</p>
-        <section class="hemocentro">
+        {% for hc in hc %}
+        <div class="hc-title">
+            <p class="pg-title"> Bolsas de sangue no Hemocentro de {{hc.address.capitalize}} <br><br>
+                            Atualizado {{hc.last_updated|date:"SHORT_DATE_FORMAT"}}</p>
 
+            {% if hemoscuser.is_authenticated and hemoscuser.location == hc.location%}
+                <button type="submit">Editar</button>
+            {% endif %}
+        </div>
+        
+        <section class="hc">
+            <p>Os gráficos abaixo contemplam apenas os estoques de Concentrado de Hemácias</p>
+
+            <div class="hc-bags">
+                {% for bag in hc.bloodbag_set.all %}
+                    <div class="hc-bag">
+                        <p class="bag-info">{{bag.type}}</p>
+                        <div class="bag-img">
+                            {% if bag.level == "CRITICO"%}
+                                <img class="hc-img" src="{% static 'assets/images/bolsa1.png' %}" alt="Bolsa Crítico">
+                            {% elif bag.level == "BAIXO"%}
+                                <img class="hc-img" src="{% static 'assets/images/bolsa2.png' %}" alt="Bolsa Baixo">
+                            {% elif bag.level == "ESTAVEL"%}
+                                <img class="hc-img" src="{% static 'assets/images/bolsa3.png' %}" alt="Bolsa Estavel">
+                            {% else %}
+                                <img class="hc-img" src="{% static 'assets/images/bolsa4.png' %}" alt="Bolsa Adequado">
+                            {% endif %}
+                        </div>
+                        
+                        <div class="bag-info">
+                            <p>Bolsas: {{bag.total}}</p>
+                            <p>Ideal: {{bag.ideal_qnt}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% for bag in hc.bloodbag_set.all %}
+                <div class="bag-moreinfo-{{bag.id}}">
+                    <p class="moreinfo-field">Estado: {{bag.level}}</p>
+                    <p class="moreinfo-field">Bolsas em estoque: {{bag.total}}</p>
+                    <p class="moreinfo-field">Quantidade Ideal: {{bag.ideal_qnt}}</p>
+                    <p class="moreinfo-field">Atualizado: {{bag.last_updated}}</p>
+
+                    {% with total=bag.total ideal=bag.ideal_qnt%}
+                        {% if total|subtract:ideal > 0 %}
+                        <p class="moreinfo-field alert-green">
+                            {{total|subtract:ideal}} bolsa(s) acima da quantia ideal
+                        </p>
+                        {% elif total|subtract:ideal < 0 %}
+                        <p class="moreinfo-field alert-red">
+                            {{ideal|subtract:total}} bolsa(s) abaixo da quantia ideal
+                        </p>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            {% endfor %}
         </section>
+        {% endfor %}
     </div>
 {% endblock %}
