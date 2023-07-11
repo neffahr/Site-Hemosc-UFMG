@@ -4,21 +4,16 @@
 
 {% block content %}
     <div class="page-wrapper page-hc">
-        {% for hc in hc %}
         <div class="hc-title">
-            <p class="pg-title"> Bolsas de sangue no Hemocentro de {{hc.address.capitalize}} <br><br>
-                            Atualizado {{hc.last_updated|date:"SHORT_DATE_FORMAT"}}</p>
-
-            {% if hemoscuser.is_authenticated and hemoscuser.location == hc.location%}
-                <button type="submit">Editar</button>
-            {% endif %}
+            <p class="pg-title"> Resultados de bolsas para: {{request.GET.search.upper}}</p>
         </div>
         
+        {% if bags %}
         <section class="hc">
             <p>Os gráficos abaixo contemplam apenas os estoques de Concentrado de Hemácias</p>
 
             <div class="hc-bags">
-                {% for bag in hc.bloodbag_set.all %}
+                {% for bag in bags %}
                     <div class="hc-bag">
                         <p class="bag-info">{{bag.type}}</p>
                         <div class="bag-img">
@@ -41,8 +36,9 @@
                 {% endfor %}
             </div>
 
-            {% for bag in hc.bloodbag_set.all %}
+            {% for bag in bags %}
                 <div class="bag-moreinfo-{{bag.id}}">
+                    <p class="moreinfo-field">Hemocentro: {{bag.location}}</p>
                     <p class="moreinfo-field">Estado: {{bag.level}}</p>
                     <p class="moreinfo-field">Bolsas em estoque: {{bag.total}}</p>
                     <p class="moreinfo-field">Quantidade Ideal: {{bag.ideal_qnt}}</p>
@@ -62,7 +58,12 @@
                 </div>
             {% endfor %}
         </section>
-        {% endfor %}
+
+        {% else %}
+        <div class="notfound">
+            <p>Bolsas não encontradas</p>
+        </div>
+        {% endif %}
     </div>
     
     <script src="{% static '/js/bag_info.js' %}"></script>

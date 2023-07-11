@@ -11,7 +11,7 @@
                 <a href="{% url 'historico' %}">Histórico</a>
             {% endif %}
         </div>
-        <a href="{% url 'login' %}" class="page-login">Login</a>
+        <a href="{% url 'login' %}" class="pages-login">Login</a>
     </div>
 
     <div class="header-icons">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="icons-search icon-div">
-            <form action="" class="search-form"> <!--  url 'search' -->
+            <form action="{% url 'search' %}" class="search-form">
                 <div class="icon search-icon">
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </div>
@@ -29,7 +29,7 @@
                     <img src="{% static '/assets/icons/search.png' %}" alt="ícone de pesquisa">
                 </button>
         
-                <input class="search-input" type="text" name='search' placeholder="Procure por locais ou bolsas" hidden>
+                <input class="search-input" type="text" name='search' placeholder="Procure por tipos sanguíneos" hidden>
                 
                 <div class="icon cancel-icon" hidden>
                     <img src="{% static '/assets/icons/cancel.png' %}" alt="ícone de cancelar">
@@ -91,6 +91,3 @@
         </div>
     </nav>
 </section>
-<script src="{% static '/js/search.js' %}"></script>
-<script src="{% static '/js/opbar.js' %}"></script>
-<script src="{% static '/js/hcbar.js' %}"></script>

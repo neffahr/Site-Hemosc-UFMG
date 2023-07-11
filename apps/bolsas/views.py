@@ -20,3 +20,13 @@ def location_info(request, location):
     hc = Hemocentro.objects.filter(address=location)
     return render(request, 'bolsas/hemocentro.html', {'hc': hc, 'locations': lc_all})
 
+def search(request):
+    lc = Hemocentro.objects.all()
+    bags = BloodBag.objects.order_by('last_updated')
+
+    if "search" in request.GET:
+        type = request.GET['search']
+        if type:
+            bags = bags.filter(type__icontains=type)
+
+    return render(request, 'bolsas/search.html', {'bags': bags, 'locations': lc})

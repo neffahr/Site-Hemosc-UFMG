@@ -25,13 +25,13 @@ def login(request):
             messages.success(request, f'Bem vindo {email.split("@", 1)[0]}')
             return redirect('index')
         else:
-            messages.error(request, 'Usuário/Senha/Unidade não correspondem') # implement messages
+            messages.error(request, 'Usuário/Senha/Unidade não correspondem')
             return redirect('login')
         
     return render(request, 'users/login.html', {'form': form})
 
 def logout(request):
-    if not request.user.is_authenticated:    
+    if request.user.is_authenticated:    
         auth.logout(request)
         messages.success(request, 'Logout efetuado com sucesso!')
     return redirect('index')

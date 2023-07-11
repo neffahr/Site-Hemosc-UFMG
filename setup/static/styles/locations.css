@@ -47,16 +47,21 @@
 }
 
 div[class*="bag-moreinfo-"] {
-    width: 400px;
-    height: 350px;
+    display:none;
+}
+div[class*="bag-moreinfo-"].active {
+    display: block;
+    width: 30%;
+    height: fit-content;
     border: 2px solid var(--color-brt-red);
     border-radius: 15px;
-    background: rgb(255,229,202,.15);
+    background: rgb(255,229,202,.8);
     font-size: 1.1rem;
     box-sizing: border-box;
     position: fixed;
-    top: 27vh;
-    left: 36vw;
+    top: 30%;
+    left: 35%;
+    cursor: pointer; 
 }
 
 .moreinfo-field {
@@ -64,10 +69,18 @@ div[class*="bag-moreinfo-"] {
 }
 
 .alert-green {
-    color: rgb(148, 219, 42);
+    color: rgb(135, 194, 48);
     margin-top: 60px;
 }
 .alert-red {
     color: red;
     margin-top: 60px;
+}
+
+@media screen and (max-width: 800px) {
+    div[class*="bag-moreinfo-"].active {
+        top: 30%;
+        left: 0;
+        width: 200px;
+    }
 }
