@@ -150,3 +150,9 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+# User Authentication
+AUTHENTICATION_BACKENDS = [
+    'apps.users.backends.HemoscUserBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]

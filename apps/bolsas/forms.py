@@ -19,13 +19,3 @@ class HemocentroForms(forms.Form):
             }
         )
     )
-    total = forms.IntegerField(
-        label='Quantidade Total',
-        disabled=True,
-        required=True,
-        widget=forms.NumberInput(
-            attrs={
-                "class": "form-field form-db",
-            }
-        )
-    )

@@ -9,8 +9,8 @@
             <p class="pg-title"> Bolsas de sangue no Hemocentro de {{hc.address.capitalize}} <br><br>
                             Atualizado {{hc.last_updated|date:"SHORT_DATE_FORMAT"}}</p>
 
-            {% if hemoscuser.is_authenticated and hemoscuser.location == hc.location%}
-                <button type="submit">Editar</button>
+            {% if request.user.is_authenticated and request.user.location == hc.address%}
+                <a class="hc-edit" href="{% url 'edit' hc.address %}">Editar Bolsas</a>
             {% endif %}
         </div>
         

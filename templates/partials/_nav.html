@@ -7,7 +7,7 @@
     <div class="header-pages">
         <div>
             <a href="{% url 'locations' %}">Localizações</a>
-            {% if hemoscuser.is_authenticated %}
+            {% if request.user.is_authenticated  %}
                 <a href="{% url 'historico' %}">Histórico</a>
             {% endif %}
         </div>

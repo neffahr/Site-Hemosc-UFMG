@@ -11,13 +11,11 @@ def login(request):
         if form.is_valid():
             email=form['email'].value()
             senha=form['password'].value()
-            location=form['location'].value()
 
         user = auth.authenticate(
             request,
-            username=email,
+            email=email,
             password=senha,
-            location=location
         )
         
         if user is not None:
@@ -31,7 +29,7 @@ def login(request):
     return render(request, 'users/login.html', {'form': form})
 
 def logout(request):
-    if request.user.is_authenticated:    
+    if request.user.is_authenticated:
         auth.logout(request)
         messages.success(request, 'Logout efetuado com sucesso!')
     return redirect('index')

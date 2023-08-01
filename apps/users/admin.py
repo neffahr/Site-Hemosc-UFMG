@@ -6,7 +6,7 @@ class ListUserAdmin(UserAdmin):
     fieldsets=[(
         None,
         {
-            "fields": ["location", "username", "password"],
+            "fields": ["location", "email", "password"],
         },
     )]
 

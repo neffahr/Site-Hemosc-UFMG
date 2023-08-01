@@ -3,6 +3,7 @@
 @import "contact.css";
 @import "index.css";
 @import "locations.css";
+@import "login.css";
 
 :root {
     --color-red: #DD5353;

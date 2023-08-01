@@ -7,7 +7,7 @@ class LoginForms(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
-                "class": "form-field form-login",
+                "class": "form-field login-field",
                 "placeholder": "Email"
             }
         )
@@ -18,27 +18,8 @@ class LoginForms(forms.Form):
         max_length=70,
         widget=forms.PasswordInput(
             attrs={
-                "class": "form-field form-login",
+                "class": "form-field login-field",
                 "placeholder": "Senha"
-            }
-        )
-    )
-    location=forms.ChoiceField(
-        label='Unidade',
-        required=True,
-        choices=[
-            ("FLORIANÓPOLIS", "Florianópolis"),
-            ("JOINVILLE", "Joinville"),
-            ("BLUMENAU", "Blumenau"),
-            ("CRICIÚMA", "Criciúma"),
-            ("LAGES", "Lages"),
-            ("JOAÇABA", "Joaçaba"),
-            ("CHAPECÓ", "Chapecó")
-        ],
-        widget=forms.Select(
-            attrs={
-                "class": "form-field form-login",
-                "placeholder": "Selecione a Unidade"
             }
         )
     )

@@ -3,21 +3,26 @@
 
 {% block content %}
     <section class="login">
-        <img src="{% static '/assets/images/login_image.png' %}" alt="Imagem Login">
-
-        <form action="{% url 'login'%}" method="post" class="form-wrapper">
-            {% csrf_token %}
-            <h2>Login</h2>
-            <p>É gerente do banco de sangue da Hemosc? Entre para ter acesso as funcionalidades de gerenciamento do site </p>
-
-            <div class="form-login">
-                {% for field in form.visible_fields %}
-                    {{ field }}
-                {% endfor %}
+        <div class="login-wrapper">
+            <div class="login-img">
+                <img src="{% static '/assets/images/login_image.png' %}" alt="Imagem Login">
             </div>
-            <div class="login-btn">
-                <button type="submit">Acessar</button>
-            </div>
-        </form>
+
+            <form action="{% url 'login'%}" method="post" class="form-wrapper">
+                {% csrf_token %}
+                <h2>Login</h2>
+                <p>É gerente do banco de sangue da Hemosc? Entre para ter acesso as funcionalidades de gerenciamento do site </p>
+
+                <div class="login-fields">
+                    {% for field in form.visible_fields %}
+                        {{ field }}
+                    {% endfor %}
+                </div>
+                <div class="login-btn">
+                    <button type="submit">Acessar</button>
+                </div>
+            </form>
+        </div>
+        
     </section>
 {% endblock %}

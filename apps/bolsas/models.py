@@ -32,10 +32,30 @@ class BloodBag(models.Model):
     ideal_qnt = models.IntegerField()
     total = models.IntegerField()
     last_updated = models.DateTimeField(default=datetime.now)
-    location = models.ForeignKey(Hemocentro, on_delete=models.DO_NOTHING)
+    location = models.ForeignKey(Hemocentro, on_delete=models.PROTECT)
+
+    def calc_ideal_qnt(self, new_data):
+        data = self.dataarray_set.all
+
+        min = None
+        for i in data:
+            min = min if min != None and min < i.id else i.id
+        self.objects.create(total=new_data)
+        self.dataarray.objects.get(pk=min).delete()
+
+        for item in data:
+            ideal_qnt += item.total
+        return ideal_qnt//7
 
     def __str__(self):
         return self.type
+
+class DataArray(models.Model):
+    total = models.IntegerField()
+    bag = models.ForeignKey(BloodBag, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return self.total
 
 
 class IndexBag:

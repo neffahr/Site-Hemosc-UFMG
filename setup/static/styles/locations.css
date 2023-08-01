@@ -13,9 +13,32 @@
 
 
 /* HCS PAGES */
+
 .hc {
     margin-bottom: 50px;
 }
+
+.hc-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hc-edit {
+    height: fit-content;
+    padding: 10px 30px;
+    color: black;
+    background-color: var(--color-brt-red);
+    border-radius: 10px;
+    margin: 0 10px;
+    transition: 0.1s;
+}
+.hc-edit:hover {
+    scale: 1.03;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.1s;
+}
+
 .hc>p {
     text-align: center;
     font-size: 0.9rem;
