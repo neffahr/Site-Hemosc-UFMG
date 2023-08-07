@@ -15,7 +15,7 @@ class HemocentroForms(forms.Form):
         required=True,
         widget=forms.NumberInput(
             attrs={
-                "class": "form-field form-db",
+                "class": "form-field formdb",
             }
         )
     )

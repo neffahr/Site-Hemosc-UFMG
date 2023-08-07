@@ -17,7 +17,7 @@ class ListBags(admin.ModelAdmin):
 admin.site.register(BloodBag, ListBags)
 
 class ListData(admin.ModelAdmin):
-    list_display = ("total",)
+    list_display = ("id", "total", "bag",)
     list_display_links = ("total",)
 admin.site.register(DataArray, ListData)
 

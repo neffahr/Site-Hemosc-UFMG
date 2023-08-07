@@ -1,6 +1,12 @@
-{% extends 'shared/base1.html' %}
+{% extends 'shared/base2.html' %}
 {% load static %}
 
 {% block content %}
-    
+    <form method="post">
+        {% csrf_token %}
+        {{ formset }}
+        <div class="db-btn">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
 {% endblock %}

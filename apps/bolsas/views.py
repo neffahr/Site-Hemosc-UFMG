@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import get_object_or_404, render, redirect
 from apps.bolsas.models import Hemocentro, BloodBag, IndexBag
 from apps.bolsas.forms import HemocentroForms
@@ -26,24 +27,32 @@ def edit_hc(request, location):
     if not request.user.is_authenticated:
         return redirect('login')
     
-    hc = Hemocentro.objects.get(address=location)
-    FormSet = formset_factory(HemocentroForms, extra=6, min_num=7, validate_min=True)
+    hc = Hemocentro.objects.filter(address=location)
+    FormSet = formset_factory(HemocentroForms, min_num=7, validate_min=True)
     formset = FormSet(prefix = 'bag')
 
     if request.method == 'POST':
         formset = FormSet(request.POST, prefix = 'bag')
 
         if formset.is_valid():
-            for bag in hc.bloodbag_set.all:
-                i = 0
-                entry=formset["bag-"+ str(i) + "-entry"].value()
-                exit=formset["bag-"+ str(i) + "-exit"].value()
-                total=bag.total + (entry - exit)
-                bag.total=total
-                bag.ideal_qnt = bag.calc_ideal_qnt(total)
-                bag.save()
-                i += 1
-            
+            for hc in hc:
+                bags = hc.bloodbag_set.all()
+
+                form_id = 0
+                for form in formset:
+                    bag = bags[form_id]
+                    
+                    entry=form['entry'].value()
+                    exit=form['exit'].value()
+                    total=bag.total + (int(entry) - int(exit))
+                    total=total if total>0 else 0
+
+                    bag.total = total
+                    bag.ideal_qnt = bag.calc_ideal_qnt(total)
+                    bag.level = bag.calc_level()
+                    bag.save() 
+                    form_id += 1
+
             return redirect('index')
 
     return render(request, 'bolsas/editar.html', {'formset': formset, 'hc': hc})

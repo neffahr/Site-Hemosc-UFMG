@@ -35,17 +35,30 @@ class BloodBag(models.Model):
     location = models.ForeignKey(Hemocentro, on_delete=models.PROTECT)
 
     def calc_ideal_qnt(self, new_data):
-        data = self.dataarray_set.all
+        data = self.dataarray_set.all()
 
         min = None
         for i in data:
-            min = min if min != None and min < i.id else i.id
-        self.objects.create(total=new_data)
-        self.dataarray.objects.get(pk=min).delete()
+            min = i.id if min == None or min > i.id else min
+        DataArray.objects.create(total=new_data, bag=self)
+        DataArray.objects.get(pk=min).delete()
 
+        ideal_qnt = 0
+        data = self.dataarray_set.all()
         for item in data:
             ideal_qnt += item.total
         return ideal_qnt//7
+    
+    def calc_level(self):
+        total_bags = self.total
+        if (total_bags <= (self.ideal_qnt//4)):
+            return 'CRITICO'
+        elif (total_bags <= (3*self.ideal_qnt//5)):
+            return 'BAIXO'
+        elif (total_bags < (self.ideal_qnt)):
+            return 'ESTAVEL'
+        else:
+            return 'ADEQUADO'
 
     def __str__(self):
         return self.type
@@ -55,7 +68,7 @@ class DataArray(models.Model):
     bag = models.ForeignKey(BloodBag, on_delete=models.PROTECT)
 
     def __str__(self):
-        return self.total
+        return str(self.total)
 
 
 class IndexBag:
