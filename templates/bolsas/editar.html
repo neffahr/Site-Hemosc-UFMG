@@ -2,11 +2,28 @@
 {% load static %}
 
 {% block content %}
-    <form method="post">
-        {% csrf_token %}
-        {{ formset }}
-        <div class="db-btn">
-            <button type="submit">Enviar</button>
-        </div>
-    </form>
+    <div class="page-wrapper">
+        {% for hc in hc %}
+        <p class="pg-title"> Editar bolsas de sangue no Hemocentro de {{hc.address.capitalize}}
+        
+        <section class="hc-editdb">
+            <form method="post" class="hc-forms">
+                {% csrf_token %}
+                {{ formset.management_form }}
+                <div class="hc-fieldsets">
+                {% for form in formset %}
+                    <fieldset>
+                        {{ form.as_p }}
+                    </fieldset>
+                {% endfor %}
+                </div>
+                
+    
+                <div class="db-btn">
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+    </div>
+    {% endfor %}
 {% endblock %}

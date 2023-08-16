@@ -4,6 +4,7 @@
 @import "index.css";
 @import "locations.css";
 @import "login.css";
+@import "edit.css";
 
 :root {
     --color-red: #DD5353;
